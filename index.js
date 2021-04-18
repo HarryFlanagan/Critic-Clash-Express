@@ -6,9 +6,12 @@ import cors from 'cors';
 const express = require('express')
 const bodyParser = require('body-parser');
 const app = express()
-const port = 3000
+const port = process.env.PORT || 8080
 
-mongoose.connect('mongodb://localhost:27017/test4DB', {
+const MONGODB_URI = 'mongodb+srv://admin:admin@cluster0.c3ttr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+//mongodb://localhost:27017/test4DB
+
+mongoose.connect(MONGODB_URI || 'mongodb://localhost:27017/test4DB', {
     "userNewURlParser": true,
     "useUnifiedTopology": true
 });
